@@ -8,9 +8,18 @@ public class Lava {
         System.out.println(indent+"____________________________________________________________");
         Scanner reader = new Scanner(System.in);
         String input = reader.nextLine();
+        String[] storage = new String[100];
+        int lastEle = 0;
         while (!input.equals("bye")){
             System.out.println(indent+"____________________________________________________________");
-            System.out.println(indent+input);
+            if (!input.equals("list")){
+                storage[lastEle++] = input;
+                System.out.println(indent+"added: "+input);
+            }else{
+                for (int i = 0; i < lastEle; i++){
+                    System.out.println(indent+(i+1)+". "+storage[i]);
+                }
+            }
             System.out.println(indent+"____________________________________________________________");
             input = reader.nextLine();
         }
