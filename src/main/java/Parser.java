@@ -1,7 +1,7 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class Parser {
-    private static final String REGEX_EXPRESSION = "(?<action>mark|unmark|list|todo|deadline|event)(\\s+(?<entity>.+))?";
+    private static final String REGEX_EXPRESSION = "^(?<action>mark|unmark|list|todo|deadline|event)(\\s+(?<entity>.+))?";
     private static final Pattern PATTERN = Pattern.compile(REGEX_EXPRESSION);
 
     public static void addTask(String userInput) {
