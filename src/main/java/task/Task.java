@@ -1,13 +1,13 @@
+package task;
+import misc.PrintFormat;
 public class Task{
 
     protected String description;
     protected boolean isDone;
-    public static int taskCount = 0;
 
     public Task(String description){
         this.description = description;
         this.isDone = false;
-        Task.taskCount++;
     }
 
     public String getStatus(){
@@ -43,6 +43,6 @@ public class Task{
     protected static void printCreateTask(Task task){
         PrintFormat.println("Meow~! Got it! I've added this task for you!");
         PrintFormat.println(task);
-        PrintFormat.println("Now you have " + Task.taskCount + " tasks in your list, nya~!");
+        PrintFormat.println("Now you have " + TaskManager.getLength() + " tasks in your list, nya~!");
     }
 }

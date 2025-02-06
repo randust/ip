@@ -1,9 +1,10 @@
-public class Deadline extends Task{
+package task;
+public class Deadline extends Task {
     private String time;
 
     public static Deadline createDeadline(String description, String time){
         Deadline deadline = new Deadline(description, time);
-        printCreateTask(deadline);
+        Task.printCreateTask(deadline);
         return deadline;
     }
 

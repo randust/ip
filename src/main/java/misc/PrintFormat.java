@@ -1,3 +1,5 @@
+package misc;
+
 public class PrintFormat {
     public static final String INDENT = "    ";
     public static final String SEPARATE_LINE = "____________________________________________________________";

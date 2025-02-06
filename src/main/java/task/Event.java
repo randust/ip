@@ -1,8 +1,9 @@
-public class Event extends Task{
+package task;
+public class Event extends Task {
     String startTime, endTime;
     public static Event createEvent(String description, String startTime, String endTime){
         Event event = new Event(description, startTime, endTime);
-        printCreateTask(event);
+        Task.printCreateTask(event);
         return event;
     }
 
