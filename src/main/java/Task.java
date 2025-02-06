@@ -17,10 +17,10 @@ public class Task{
     public void markStatus(boolean isDone){
         this.isDone = isDone; // mark or unmark task
         if (isDone) {
-            PrintFormat.println("Nyaa~! Good job, hooman! I've marked this task as done!! (≧▽≦)ฅ");
+            PrintFormat.println("Nyaa~! Good job, hooman! I've marked this task as done!!");
             PrintFormat.println(this);
         } else {
-            PrintFormat.println("Okay! I've marked this task as not done yet nya~! (＾• ω •＾)");
+            PrintFormat.println("Okay! I've marked this task as not done yet nya~!");
             PrintFormat.println(this);
         }
     }
@@ -41,7 +41,7 @@ public class Task{
     }
 
     protected static void printCreateTask(Task task){
-        PrintFormat.println("Meow~! Got it! I've added this task for you! (ฅ^•ﻌ•^ฅ)");
+        PrintFormat.println("Meow~! Got it! I've added this task for you!");
         PrintFormat.println(task);
         PrintFormat.println("Now you have " + Task.taskCount + " tasks in your list, nya~!");
     }

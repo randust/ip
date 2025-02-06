@@ -21,7 +21,7 @@ public class NekoBot {
             userInput = reader.nextLine();
         }
 
-        PrintFormat.println("Nyaa~ Bye bye! Hope to see you again soon! (ฅ^•ﻌ•^ฅ)");
+        PrintFormat.println("Nyaa~ Bye bye! Hope to see you again soon!");
         PrintFormat.printLine();
     }
 }

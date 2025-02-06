@@ -16,7 +16,7 @@ public class Parser {
                 ActionType action = ActionType.valueOf(actionStr);
                 action.execute(entity);
             } catch (IllegalArgumentException e) {
-                PrintFormat.println("Nyaa~ I don’t understand that action, nya! (；ΦωΦ) Please try again, meow!");
+                PrintFormat.println("Nyaa~ I don’t understand that action, nya! Please try again, meow!");
             }
         } else {
             PrintFormat.println("Meow? I didn’t catch that... Can you say it again, nya? (・・？)");
@@ -62,7 +62,7 @@ public class Parser {
                             subMatcher.group("time")
                     );
                 } else {
-                    PrintFormat.println("Myaa~! That deadline format looks wrong... Try again? (╥﹏╥)");
+                    PrintFormat.println("Myaa~! That deadline format looks wrong... Try again?");
                 }
             }
         },
@@ -78,7 +78,7 @@ public class Parser {
                             subMatcher.group("endTime")
                     );
                 } else {
-                    PrintFormat.println("Myaa~! I didn’t understand the event details! (╥_╥) Please use: [event_name] /from [start] /to [end]!");
+                    PrintFormat.println("Myaa~! I didn’t understand the event details! Please use: [event_name] /from [start] /to [end]!");
                 }
             }
         };
@@ -89,7 +89,7 @@ public class Parser {
             try {
                 int taskNumber = Integer.parseInt(entity);
                 if (taskNumber <= 0 || taskNumber > Task.taskCount) {
-                    PrintFormat.println("Meow?! That task number doesn't exist! (ΦωΦ)");
+                    PrintFormat.println("Meow?! That task number doesn't exist!");
                 } else {
                     Task task = NekoBot.tasks[taskNumber - 1];
                     task.markStatus(isDone);
