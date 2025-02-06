@@ -1,5 +1,6 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 public class Parser {
     private static final String REGEX_EXPRESSION = "^(?<action>mark|unmark|list|todo|deadline|event)(\\s+(?<entity>.+))?";
     private static final Pattern PATTERN = Pattern.compile(REGEX_EXPRESSION);
@@ -15,10 +16,10 @@ public class Parser {
                 ActionType action = ActionType.valueOf(actionStr);
                 action.execute(entity);
             } catch (IllegalArgumentException e) {
-                PrintFormat.println("Unknown action: " + actionStr);
+                PrintFormat.println("Nyaa~ I don’t understand that action, nya! (；ΦωΦ) Please try again, meow!");
             }
         } else {
-            PrintFormat.println("No valid match found.");
+            PrintFormat.println("Meow? I didn’t catch that... Can you say it again, nya? (・・？)");
         }
     }
 
@@ -38,16 +39,16 @@ public class Parser {
         LIST {
             @Override
             void execute(String entity) {
-                PrintFormat.println("Here are the tasks in your list:");
-                for (int i = 0; i < Task.taskCount; i++){
-                    PrintFormat.println((i + 1) + "." + Lava.tasks[i]); //list out (print) tasks
+                PrintFormat.println("Here are all your tasks, nya~! (≧◡≦) ♡");
+                for (int i = 0; i < Task.taskCount; i++) {
+                    PrintFormat.println((i + 1) + ". " + NekoBot.tasks[i]);
                 }
             }
         },
         TODO {
             @Override
             void execute(String entity) {
-                Lava.tasks[Task.taskCount] = ToDo.createToDo(entity);
+                NekoBot.tasks[Task.taskCount] = ToDo.createToDo(entity);
             }
         },
         DEADLINE {
@@ -56,12 +57,12 @@ public class Parser {
                 Pattern subPattern = Pattern.compile("(?<description>.+)\\s+/by\\s+(?<time>.+)");
                 Matcher subMatcher = subPattern.matcher(entity);
                 if (subMatcher.find()) {
-                    Lava.tasks[Task.taskCount] = Deadline.createDeadline(
+                    NekoBot.tasks[Task.taskCount] = Deadline.createDeadline(
                             subMatcher.group("description"),
                             subMatcher.group("time")
                     );
                 } else {
-                    PrintFormat.println("Error: Input does not match the expected format.");
+                    PrintFormat.println("Myaa~! That deadline format looks wrong... Try again? (╥﹏╥)");
                 }
             }
         },
@@ -71,29 +72,31 @@ public class Parser {
                 Pattern subPattern = Pattern.compile("(?<description>.+)\\s+/from\\s+(?<startTime>.+)\\s+/to\\s+(?<endTime>.+)");
                 Matcher subMatcher = subPattern.matcher(entity);
                 if (subMatcher.find()) {
-                    Lava.tasks[Task.taskCount] = Event.createEvent(
+                    NekoBot.tasks[Task.taskCount] = Event.createEvent(
                             subMatcher.group("description"),
                             subMatcher.group("startTime"),
                             subMatcher.group("endTime")
                     );
-                }else {
-                    PrintFormat.println("Error: Input does not match the expected format.");
+                } else {
+                    PrintFormat.println("Myaa~! I didn’t understand the event details! (╥_╥) Please use: [event_name] /from [start] /to [end]!");
                 }
             }
         };
 
         abstract void execute(String entity);
 
-
-        private static void markTask(String entity, boolean isDone){
-            int taskNumber = Integer.parseInt(entity);
-            if (taskNumber <= 0 || taskNumber > Task.taskCount) {
-                PrintFormat.println("Invalid task number!");
-            }else {
-                Task task = Lava.tasks[taskNumber - 1];
-                task.markStatus(isDone);
+        private static void markTask(String entity, boolean isDone) {
+            try {
+                int taskNumber = Integer.parseInt(entity);
+                if (taskNumber <= 0 || taskNumber > Task.taskCount) {
+                    PrintFormat.println("Meow?! That task number doesn't exist! (ΦωΦ)");
+                } else {
+                    Task task = NekoBot.tasks[taskNumber - 1];
+                    task.markStatus(isDone);
+                }
+            } catch (NumberFormatException e) {
+                PrintFormat.println("Please give me a valid task number, nya! (≧ヘ≦)");
             }
         }
     }
-
 }

@@ -12,4 +12,14 @@ public class PrintFormat {
     public static void printLine(){
         System.out.println(INDENT + SEPARATE_LINE);
     }
+    public static void printLogo(){
+        System.out.println("\n" + INDENT +
+                ".__   __.  _______  __  ___   ______   \n" + INDENT +
+                "|  \\ |  | |   ____||  |/  /  /  __  \\  \n" + INDENT +
+                "|   \\|  | |  |__   |  '  /  |  |  |  | \n" + INDENT +
+                "|  . `  | |   __|  |    <   |  |  |  | \n" + INDENT +
+                "|  |\\   | |  |____ |  .  \\  |  `--'  | \n" + INDENT +
+                "|__| \\__| |_______||__|\\__\\  \\______/  \n" + INDENT +
+                "                                       \n");
+    }
 }
