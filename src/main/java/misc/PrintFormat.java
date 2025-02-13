@@ -8,13 +8,16 @@ public class PrintFormat {
     public static void println(Object obj) {
         System.out.println(INDENT + obj);
     }
+
     public static void printf(Object obj) {
         System.out.printf(INDENT + obj);
     }
-    public static void printLine(){
+
+    public static void printLine() {
         System.out.println(INDENT + SEPARATE_LINE);
     }
-    public static void printLogo(){
+
+    public static void printLogo() {
         System.out.println("\n" + INDENT +
                 ".__   __.  _______  __  ___   ______   \n" + INDENT +
                 "|  \\ |  | |   ____||  |/  /  /  __  \\  \n" + INDENT +

@@ -1,12 +1,13 @@
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+package chatbot;
+
 import misc.PrintFormat;
 import task.ActionType;
-public class NekoBot {
-    private static final String REGEX_EXPRESSION = "^(?<action>mark|unmark|list|todo|deadline|event)(\\s+(?<entity>.+))?";
-    private static final Pattern PATTERN = Pattern.compile(REGEX_EXPRESSION);
+import java.util.List;
+import java.util.Arrays;
+import java.util.Scanner;
 
+public class NekoBot {
+    private static final List<String> ACTIONS = Arrays.asList("mark", "unmark", "todo", "deadline", "event", "list");
     public static void main(String[] args) {
         PrintFormat.printLine();
         PrintFormat.printLogo();
@@ -22,7 +23,7 @@ public class NekoBot {
             parse(userInput);
             PrintFormat.printLine();
             PrintFormat.println("Meow~ Anything else, nya? (＾• ω •＾)");
-            userInput = reader.nextLine();
+            userInput = reader.nextLine().trim();
         }
 
         PrintFormat.println("Nyaa~ Bye bye! Hope to see you again soon!");
@@ -30,20 +31,18 @@ public class NekoBot {
     }
 
     public static void parse(String userInput) {
-        Matcher matcher = PATTERN.matcher(userInput);
-
-        if (matcher.find()) {
-            String actionStr = matcher.group("action").toUpperCase();
-            String entity = matcher.group("entity");
-
-            try {
-                ActionType action = ActionType.valueOf(actionStr);
-                action.execute(entity);
-            } catch (IllegalArgumentException e) {
-                PrintFormat.println("Nyaa~ I don’t understand that action, nya! Please try again, meow!");
-            }
-        } else {
+        String[] tokens = userInput.split("\\s+", 2);
+        String actionStr = tokens[0];
+        if (actionStr.isEmpty()){
             PrintFormat.println("Meow? I didn’t catch that... Can you say it again, nya? (・・？)");
+        } else if (!ACTIONS.contains(actionStr)) {
+            PrintFormat.println("Nyaa~ I don’t understand that action, nya! Please try again, meow!");
+        } else if (!actionStr.equals("list") && (tokens.length < 2 || tokens[1].isEmpty())) {
+            PrintFormat.println("Meow~! Arguments cannot be empty, nya! (＾• ω •＾)");
+        } else {
+            String arguments = actionStr.equals("list")? null : tokens[1];
+            ActionType action = ActionType.valueOf(actionStr.toUpperCase());
+            action.execute(arguments);
         }
     }
 }

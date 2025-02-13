@@ -1,0 +1,49 @@
+    ____________________________________________________________
+
+    .__   __.  _______  __  ___   ______   
+    |  \ |  | |   ____||  |/  /  /  __  \  
+    |   \|  | |  |__   |  '  /  |  |  |  | 
+    |  . `  | |   __|  |    <   |  |  |  | 
+    |  |\   | |  |____ |  .  \  |  `--'  | 
+    |__| \__| |_______||__|\__\  \______/  
+                                           
+
+    Nyaa~! I'm NekoBot! (≧▽≦)
+    What can I do for you, nya~?
+    ____________________________________________________________
+    ____________________________________________________________
+    Meow~! Got it! I've added this task for you!
+    [T][ ] Andrew: Answer CS2113 tutorial questions
+    Now you have 0 tasks in your list, nya~!
+    ____________________________________________________________
+    Meow~ Anything else, nya? (＾• ω •＾)
+    ____________________________________________________________
+    Meow~! Got it! I've added this task for you!
+    [D][ ] weekly CS2113 quiz (by: Monday 9pm)
+    Now you have 1 tasks in your list, nya~!
+    ____________________________________________________________
+    Meow~ Anything else, nya? (＾• ω •＾)
+    ____________________________________________________________
+    Here are all your tasks, nya~! (≧◡≦) ♡
+    1. [T][ ] Andrew: Answer CS2113 tutorial questions
+    2. [D][ ] weekly CS2113 quiz (by: Monday 9pm)
+    ____________________________________________________________
+    Meow~ Anything else, nya? (＾• ω •＾)
+    ____________________________________________________________
+    Meow~! Got it! I've added this task for you!
+    [E][ ] CS2113 lecture (from: Friday 4 to: 6pm)
+    Now you have 2 tasks in your list, nya~!
+    ____________________________________________________________
+    Meow~ Anything else, nya? (＾• ω •＾)
+    ____________________________________________________________
+    Nyaa~! Good job, hooman! I've marked this task as done!!
+    [T][X] Andrew: Answer CS2113 tutorial questions
+    ____________________________________________________________
+    Meow~ Anything else, nya? (＾• ω •＾)
+    ____________________________________________________________
+    Here are all your tasks, nya~! (≧◡≦) ♡
+    1. [T][X] Andrew: Answer CS2113 tutorial questions
+    2. [D][ ] weekly CS2113 quiz (by: Monday 9pm)
+    3. [E][ ] CS2113 lecture (from: Friday 4 to: 6pm)
+    ____________________________________________________________
+    Meow~ Anything else, nya? (＾• ω •＾)

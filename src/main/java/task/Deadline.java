@@ -1,20 +1,23 @@
 package task;
-public class Deadline extends Task {
-    private String time;
 
-    public static Deadline createDeadline(String description, String time){
+import misc.NekoException;
+
+public class Deadline extends Task {
+    private final String time;
+
+    public Deadline(String description, String time) {
+        super(description);
+        this.time = time;
+    }
+
+    public static Deadline createDeadline(String description, String time) {
         Deadline deadline = new Deadline(description, time);
         Task.printCreateTask(deadline);
         return deadline;
     }
 
-    public Deadline(String description, String time){
-        super(description);
-        this.time = time;
-    }
-
     @Override
-    public String toString(){
+    public String toString() {
         return "[D]" + super.toString() + " (by: " + time + ")";
     }
 }
