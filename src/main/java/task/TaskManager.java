@@ -17,4 +17,8 @@ public class TaskManager {
     public static void addTask(Task task) {
         tasks.add(task);
     }
+
+    public static Task popTask(int index) {
+        return tasks.remove(index);
+    }
 }

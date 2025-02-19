@@ -68,6 +68,24 @@ public enum ActionType {
                 PrintFormat.println("Myaa~! I didn’t understand the event details!");
             }
         }
+    }, DELETE {
+        @Override
+        public void execute(String arguments) {
+            try {
+                int taskNumber = Integer.parseInt(arguments.trim());
+                if (taskNumber <= 0 || taskNumber > TaskManager.getLength()) {
+                    PrintFormat.println("Meow?! That task number doesn't exist!");
+                    return;
+                }
+                Task removedTask = TaskManager.popTask(taskNumber - 1);
+                PrintFormat.println("Okayy! I've removed this task:");
+                PrintFormat.println(removedTask);
+                int remainingTaskNumber = TaskManager.getLength();
+                PrintFormat.println("Now you have " + remainingTaskNumber + (remainingTaskNumber > 1 ? " tasks in the list nya~!" : " task in the list nya~!"));
+            } catch (NumberFormatException e) {
+                PrintFormat.println("Please provide a valid task number, nya! (≧ヘ≦)");
+            }
+        }
     };
 
     private static void markTask(String arguments, boolean isDone) throws NekoException {

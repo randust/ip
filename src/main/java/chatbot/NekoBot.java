@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class NekoBot {
-    private static final List<String> ACTIONS = Arrays.asList("mark", "unmark", "todo", "deadline", "event", "list");
+    private static final List<String> ACTIONS = Arrays.asList("mark", "unmark", "todo", "deadline", "event", "list", "delete");
     public static void main(String[] args) {
         PrintFormat.printLine();
         PrintFormat.printLogo();
