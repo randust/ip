@@ -102,7 +102,7 @@ public class NekoBot {
                 out.println(line);
             }
         } catch (IOException e) {
-
+            PrintFormat.println("There is some problem saving the data!");
         }
     }
 
