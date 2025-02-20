@@ -123,13 +123,14 @@ public class NekoBot {
                     }
                 }
             } catch (IOException e) {
-
+                PrintFormat.println("File " + FILEPATH + " cannot be loaded!");
             }
         } else {
             try {
                 File file = new File(FILEPATH);
                 file.createNewFile();
             } catch (IOException e) {
+                PrintFormat.println("File " + FILEPATH + " cannot be created!");
             }
         }
     }
