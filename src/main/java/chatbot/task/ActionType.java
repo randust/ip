@@ -26,7 +26,7 @@ public enum ActionType {
     }, LIST {
         @Override
         public void execute(String arguments) {
-            PrintFormat.println("Here are all your tasks, nya~! (≧◡≦) ♡");
+            PrintFormat.println("Here are all your tasks, nya~!");
             for (int i = 0; i < TaskManager.getLength(); i++) {
                 PrintFormat.println((i + 1) + ". " + TaskManager.getTask(i));
             }
@@ -86,7 +86,7 @@ public enum ActionType {
                 int remainingTaskNumber = TaskManager.getLength();
                 PrintFormat.println("Now you have " + remainingTaskNumber + (remainingTaskNumber > 1 ? " tasks in the list nya~!" : " task in the list nya~!"));
             } catch (NumberFormatException e) {
-                PrintFormat.println("Please provide a valid task number, nya! (≧ヘ≦)");
+                PrintFormat.println("Please provide a valid task number, nya!");
             }
         }
     };
@@ -101,7 +101,7 @@ public enum ActionType {
             task.markStatus(isDone);
             PrintFormat.println("Task " + taskNumber + " has been " + (isDone ? "marked as done!" : "unmarked!") + " nya~!");
         } catch (NumberFormatException e) {
-            throw new NekoException("Please provide a valid task number, nya! (≧ヘ≦)");
+            throw new NekoException("Please provide a valid task number, nya!");
         }
     }
 
