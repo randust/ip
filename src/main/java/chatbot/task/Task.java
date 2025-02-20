@@ -1,6 +1,6 @@
-package task;
+package chatbot.task;
 
-import misc.PrintFormat;
+import chatbot.misc.PrintFormat;
 
 public abstract class Task {
 

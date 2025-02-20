@@ -1,6 +1,4 @@
-package task;
-
-import misc.NekoException;
+package chatbot.task;
 
 public class ToDo extends Task {
     public ToDo(String description) {
@@ -9,7 +7,6 @@ public class ToDo extends Task {
 
     public static ToDo createToDo(String description) {
         ToDo todo = new ToDo(description);
-        printCreateTask(todo);
         return todo;
     }
 

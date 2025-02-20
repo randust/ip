@@ -1,4 +1,4 @@
-package misc;
+package chatbot.misc;
 
 public class PrintFormat {
     public static final String INDENT = "    ";

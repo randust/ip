@@ -1,6 +1,4 @@
-package task;
-
-import misc.NekoException;
+package chatbot.task;
 
 public class Deadline extends Task {
     private final String time;
@@ -12,8 +10,11 @@ public class Deadline extends Task {
 
     public static Deadline createDeadline(String description, String time) {
         Deadline deadline = new Deadline(description, time);
-        Task.printCreateTask(deadline);
         return deadline;
+    }
+
+    public String getTime() {
+        return time;
     }
 
     @Override

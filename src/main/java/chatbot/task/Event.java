@@ -1,4 +1,4 @@
-package task;
+package chatbot.task;
 
 public class Event extends Task {
     private final String startTime, endTime;
@@ -11,8 +11,15 @@ public class Event extends Task {
 
     public static Event createEvent(String description, String startTime, String endTime) {
         Event event = new Event(description, startTime, endTime);
-        Task.printCreateTask(event);
         return event;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
     }
 
     @Override

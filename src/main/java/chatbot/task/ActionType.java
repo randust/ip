@@ -1,6 +1,6 @@
-package task;
-import misc.NekoException;
-import misc.PrintFormat;
+package chatbot.task;
+import chatbot.misc.NekoException;
+import chatbot.misc.PrintFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -36,6 +36,7 @@ public enum ActionType {
         public void execute(String arguments) {
             ToDo todo = ToDo.createToDo(arguments);
             TaskManager.addTask(todo);
+            Task.printCreateTask(todo);
         }
     }, DEADLINE {
         @Override
@@ -48,6 +49,7 @@ public enum ActionType {
                 String time = subMatcher.group("time").trim();
                 Deadline deadline = Deadline.createDeadline(description, time);
                 TaskManager.addTask(deadline);
+                Task.printCreateTask(deadline);
             } else {
                 PrintFormat.println("Myaa~! That deadline format looks wrong... Try again?");
             }
@@ -64,6 +66,7 @@ public enum ActionType {
                 String endTime = subMatcher.group("endTime").trim();
                 Event event = Event.createEvent(description, startTime, endTime);
                 TaskManager.addTask(event);
+                Task.printCreateTask(event);
             } else {
                 PrintFormat.println("Myaa~! I didn’t understand the event details!");
             }
