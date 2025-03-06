@@ -1,3 +1,7 @@
+/**
+ * Handles storage-related operations for saving and loading chatbot tasks.
+ * This class provides functionality to read from and write to a text file.
+ */
 package chatbot.IO;
 
 import chatbot.misc.NekoException;
@@ -14,9 +18,21 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * Manages file storage for chatbot tasks, allowing data persistence across sessions.
+ */
 public class Storage {
+    /**
+     * File path where tasks are stored.
+     */
     private static final String FILEPATH = "neko.txt";
 
+    /**
+     * Parses a line of input from the storage file and creates the corresponding task.
+     *
+     * @param fileInput A formatted string representing a task.
+     * @throws NekoException If the input is malformed or missing required fields.
+     */
     public static void parseFileInput(String fileInput) throws NekoException {
         String[] elements = fileInput.split("\\s+\\|\\s+");
         if (elements[0].isEmpty() || elements[0].isBlank()) {
@@ -39,10 +55,12 @@ public class Storage {
                 TaskManager.addTask(event);
             }
             }
-
         }
     }
 
+    /**
+     * Saves the current list of tasks to a file.
+     */
     public static void saveData() {
         try (PrintWriter out = new PrintWriter(FILEPATH)) {
             for (int i = 0; i < TaskManager.getLength(); i++) {
@@ -55,6 +73,10 @@ public class Storage {
         }
     }
 
+    /**
+     * Loads tasks from the storage file and adds them to the task manager.
+     * If the file does not exist, it creates a new empty file.
+     */
     public static void loadData() {
         File f = new File(FILEPATH);
         if (f.exists() && !f.isDirectory()) {

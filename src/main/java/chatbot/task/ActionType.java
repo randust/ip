@@ -1,10 +1,21 @@
+/**
+ * This package contains task-related functionalities for the chatbot.
+ */
 package chatbot.task;
+
 import chatbot.misc.NekoException;
 import chatbot.misc.UI;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Enum representing different action commands that can be executed by the chatbot.
+ * Each action type implements its own execution logic.
+ */
 public enum ActionType {
+    /**
+     * Marks a task as done.
+     */
     MARK {
         @Override
         public void execute(String arguments) {
@@ -14,7 +25,12 @@ public enum ActionType {
                 UI.println(e.getMessage());
             }
         }
-    }, UNMARK {
+    },
+
+    /**
+     * Unmarks a task (marks it as not done).
+     */
+    UNMARK {
         @Override
         public void execute(String arguments) {
             try {
@@ -23,9 +39,12 @@ public enum ActionType {
                 UI.println(e.getMessage());
             }
         }
-    }, LIST {
+    },
 
-
+    /**
+     * Lists all tasks currently stored in TaskManager.
+     */
+    LIST {
         @Override
         public void execute(String arguments) {
             UI.println(UI.DISPLAY_TASK_MSG);
@@ -33,16 +52,24 @@ public enum ActionType {
                 UI.println((i + 1) + ". " + TaskManager.getTask(i));
             }
         }
-    }, TODO {
+    },
+
+    /**
+     * Adds a new ToDo task to the TaskManager.
+     */
+    TODO {
         @Override
         public void execute(String arguments) {
             ToDo todo = ToDo.createToDo(arguments);
             TaskManager.addTask(todo);
             Task.printCreateTask(todo);
         }
-    }, DEADLINE {
+    },
 
-
+    /**
+     * Adds a new Deadline task with a specified due date/time.
+     */
+    DEADLINE {
         @Override
         public void execute(String arguments) {
             final String DEADLINE_REGEX = "(?<description>.+)\\s+/by\\s+(?<time>.+)";
@@ -58,9 +85,12 @@ public enum ActionType {
                 UI.println(UI.WRONG_DEADLINE_FORMAT_MSG);
             }
         }
-    }, EVENT {
+    },
 
-
+    /**
+     * Adds a new Event task with a specified start and end time.
+     */
+    EVENT {
         @Override
         public void execute(String arguments) {
             final String EVENT_REGEX = "(?<description>.+)\\s+/from\\s+(?<startTime>.+)\\s+/to\\s+(?<endTime>.+)";
@@ -77,10 +107,12 @@ public enum ActionType {
                 UI.println(UI.WRONG_EVENT_DETAILS_MSG);
             }
         }
-    }, DELETE {
+    },
 
-
-
+    /**
+     * Deletes a task from TaskManager based on the given task number.
+     */
+    DELETE {
         @Override
         public void execute(String arguments) {
             try {
@@ -100,8 +132,13 @@ public enum ActionType {
         }
     };
 
-
-
+    /**
+     * Marks or unmarks a task as done based on the given task number.
+     *
+     * @param arguments The task number to be marked/unmarked.
+     * @param isDone    True to mark as done, false to unmark.
+     * @throws NekoException If the task number is invalid.
+     */
     private static void markTask(String arguments, boolean isDone) throws NekoException {
         try {
             int taskNumber = Integer.parseInt(arguments.trim());
@@ -116,5 +153,10 @@ public enum ActionType {
         }
     }
 
+    /**
+     * Executes the corresponding action based on the provided arguments.
+     *
+     * @param arguments The arguments required for the action.
+     */
     abstract public void execute(String arguments);
 }
