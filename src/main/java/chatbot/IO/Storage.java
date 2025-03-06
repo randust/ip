@@ -7,7 +7,7 @@ import chatbot.task.Event;
 import chatbot.task.Task;
 import chatbot.task.TaskManager;
 import chatbot.task.ToDo;
-
+import java.time.LocalDate;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -29,7 +29,8 @@ public class Storage {
                 TaskManager.addTask(todo);
             }
             case "D" -> {
-                Deadline deadline = Deadline.createDeadline(elements[2], elements[3]);
+                LocalDate time = LocalDate.parse(elements[3]);
+                Deadline deadline = Deadline.createDeadline(elements[2], time);
                 deadline.markStatus(elements[1].equals("1"));
                 TaskManager.addTask(deadline);
             }
