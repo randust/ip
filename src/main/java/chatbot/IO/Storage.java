@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.format.DateTimeParseException;
 
 /**
  * Manages file storage for chatbot tasks, allowing data persistence across sessions.
@@ -45,10 +46,14 @@ public class Storage {
                 TaskManager.addTask(todo);
             }
             case "D" -> {
-                LocalDate time = LocalDate.parse(elements[3]);
-                Deadline deadline = Deadline.createDeadline(elements[2], time);
-                deadline.markStatus(elements[1].equals("1"));
-                TaskManager.addTask(deadline);
+                try {
+                    LocalDate time = LocalDate.parse(elements[3]);
+                    Deadline deadline = Deadline.createDeadline(elements[2], time);
+                    deadline.markStatus(elements[1].equals("1"));
+                    TaskManager.addTask(deadline);
+                } catch (DateTimeParseException e) {
+                    UI.println(UI.WRONG_TIME_FORMAT_MSG);
+                }
             }
             case "E" -> {
                 Event event = Event.createEvent(elements[2], elements[3], elements[4]);
