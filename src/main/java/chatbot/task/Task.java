@@ -1,6 +1,6 @@
 package chatbot.task;
 
-import chatbot.misc.PrintFormat;
+import chatbot.misc.UI;
 
 public abstract class Task {
 
@@ -13,9 +13,9 @@ public abstract class Task {
     }
 
     protected static void printCreateTask(Task task) {
-        PrintFormat.println("Meow~! Got it! I've added this task for you!");
-        PrintFormat.println(task);
-        PrintFormat.println("Now you have " + TaskManager.getLength() + " tasks in your list, nya~!");
+        UI.println(UI.ADD_TASK_MSG);
+        UI.println(task);
+        UI.println("Now you have " + TaskManager.getLength() + " tasks in your list, nya~!");
     }
 
     public String getStatus() {
@@ -29,9 +29,9 @@ public abstract class Task {
     public String getDescription() {
         return description;
     }
-
     @Override
     public String toString() {
         return getStatus() + " " + getDescription();
     }
+    public abstract String saveFormat();
 }

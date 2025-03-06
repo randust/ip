@@ -21,4 +21,9 @@ public class Deadline extends Task {
     public String toString() {
         return "[D]" + super.toString() + " (by: " + time + ")";
     }
+
+    @Override
+    public String saveFormat(){
+        return "D | " + (isDone?1:0) + " | " + description + " | " + time;
+    }
 }
