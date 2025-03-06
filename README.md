@@ -1,26 +1,35 @@
-# Lava project template
+# NekoBot
 
-This is a project template for a greenfield Java project. It's named after the Java mascot _Duke_. Given below are instructions on how to use it.
+## Features
+- **Add tasks:** Create To-Do, Deadline, and Event tasks.
+- **List tasks:** View all tasks currently stored.
+- **Mark tasks:** Mark a task as completed.
+- **Unmark tasks:** Unmark a task to indicate it is not yet completed.
+- **Delete tasks:** Remove a task from the list.
+- **Find tasks:** Search for tasks by keyword.
+- **Save and load tasks:** Automatically save tasks to a file (`neko.txt`) and load them upon startup.
 
-## Setting up in Intellij
+## Getting Started
+### Prerequisites
+- Java Development Kit (JDK) 11 or later installed on your system.
+- A terminal or command prompt to run the chatbot.
 
-Prerequisites: JDK 17, update Intellij to the most recent version.
+### Commands
+Below is a list of commands supported by NekoBot:
 
-1. Open Intellij (if you are not in the welcome screen, click `File` > `Close Project` to close the existing project first)
-1. Open the project into Intellij as follows:
-   1. Click `Open`.
-   1. Select the project directory, and click `OK`.
-   1. If there are any further prompts, accept the defaults.
-1. Configure the project to use **JDK 17** (not other versions) as explained in [here](https://www.jetbrains.com/help/idea/sdk.html#set-up-jdk).<br>
-   In the same dialog, set the **Project language level** field to the `SDK default` option.
-1. After that, locate the `src/main/java/Lava.java` file, right-click it, and choose `Run Lava.main()` (if the code editor is showing compile errors, try restarting the IDE). If the setup is correct, you should see something like the below as the output:
-   ```
-   Hello from
-    ____        _        
-   |  _ \ _   _| | _____ 
-   | | | | | | | |/ / _ \
-   | |_| | |_| |   <  __/
-   |____/ \__,_|_|\_\___|
-   ```
+| Command           | Description | Example |
+|------------------|-------------|---------|
+| `todo <task>`    | Adds a To-Do task | `todo Buy groceries` |
+| `deadline <task> /by <date>` | Adds a deadline task | `deadline Submit report /by 2025-03-10` |
+| `event <task> /from <start_time> /to <end_time>` | Adds an event task | `event Team meeting /from 10:00AM /to 12:00PM` |
+| `list`           | Lists all tasks | `list` |
+| `mark <task_number>` | Marks a task as done | `mark 2` |
+| `unmark <task_number>` | Unmarks a task | `unmark 2` |
+| `delete <task_number>` | Deletes a task | `delete 3` |
+| `find <keyword>` | Finds tasks containing the keyword | `find groceries` |
+| `bye`            | Exits the chatbot | `bye` |
 
-**Warning:** Keep the `src\main\java` folder as the root folder for Java files (i.e., don't rename those folders or move Java files to another folder outside of this folder path), as this is the default location some tools (e.g., Gradle) expect to find Java files.
+### Saving and Loading Data
+- Tasks are automatically saved to a file (`neko.txt`) after every command.
+- When the chatbot starts, it loads existing tasks from `neko.txt`.
+
