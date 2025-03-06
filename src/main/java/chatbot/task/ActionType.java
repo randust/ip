@@ -78,9 +78,6 @@ public enum ActionType {
             }
         }
     }, DELETE {
-
-
-
         @Override
         public void execute(String arguments) {
             try {
@@ -96,6 +93,18 @@ public enum ActionType {
                 UI.println("Now you have " + remainingTaskNumber + (remainingTaskNumber > 1 ? " tasks in the list nya~!" : " task in the list nya~!"));
             } catch (NumberFormatException e) {
                 UI.println(UI.PROVIDE_VALID_NO_MSG);
+            }
+        }
+    }, FIND {
+        @Override
+        public void execute(String arguments) {
+            int j = 1;
+            UI.println(UI.DISPLAY_MATCHING_TASK_MSG);
+            for (int i = 0; i < TaskManager.getLength(); i++) {
+                Task task = TaskManager.getTask(i);
+                if (task.getDescription().contains(arguments)){
+                    UI.println((j++) + ". " + task);
+                }
             }
         }
     };

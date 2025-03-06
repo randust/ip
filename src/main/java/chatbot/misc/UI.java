@@ -16,6 +16,7 @@ public class  UI{
     public static final String REMOVE_TASK_MSG = "Okayy! I've removed this task:";
     public static final String PROVIDE_VALID_NO_MSG = "Please provide a valid task number, nya!";
     public static final String ADD_TASK_MSG = "Meow~! Got it! I've added this task for you!";
+    public static final String DISPLAY_MATCHING_TASK_MSG = "Here are all your matching tasks, nya~!";
 
     public static void println(Object obj) {
         System.out.println(INDENT + obj);
