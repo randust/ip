@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Parser {
-    private static final List<String> ACTIONS = Arrays.asList("mark", "unmark", "todo", "deadline", "event", "list", "delete");
+    private static final List<String> ACTIONS = Arrays.asList("mark", "unmark", "todo", "deadline", "event", "list", "delete", "find");
 
     public static void parseUserInput(String userInput) {
         String[] tokens = userInput.split("\\s+", 2);

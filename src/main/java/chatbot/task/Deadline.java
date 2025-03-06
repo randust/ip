@@ -1,29 +1,31 @@
 package chatbot.task;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Deadline extends Task {
-    private final String time;
+    private final LocalDate time;
 
-    public Deadline(String description, String time) {
+    public Deadline(String description, LocalDate time) {
         super(description);
         this.time = time;
     }
 
-    public static Deadline createDeadline(String description, String time) {
+    public static Deadline createDeadline(String description, LocalDate time) {
         Deadline deadline = new Deadline(description, time);
         return deadline;
     }
 
     public String getTime() {
-        return time;
+        return time.format(DateTimeFormatter.ofPattern("MMM dd yyyy"));
     }
 
     @Override
     public String toString() {
-        return "[D]" + super.toString() + " (by: " + time + ")";
+        return "[D]" + super.toString() + " (by: " + time.format(DateTimeFormatter.ofPattern("MMM dd yyyy")) + ")";
     }
 
     @Override
     public String saveFormat(){
-        return "D | " + (isDone?1:0) + " | " + description + " | " + time;
+        return "D | " + (isDone?1:0) + " | " + description + " | " + time.toString();
     }
 }
