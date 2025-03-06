@@ -1,8 +1,12 @@
 package chatbot.task;
 import chatbot.misc.NekoException;
 import chatbot.misc.UI;
+
+import java.time.format.DateTimeParseException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public enum ActionType {
     MARK {
@@ -49,11 +53,16 @@ public enum ActionType {
             Pattern subPattern = Pattern.compile(DEADLINE_REGEX);
             Matcher subMatcher = subPattern.matcher(arguments);
             if (subMatcher.find()) {
-                String description = subMatcher.group("description").trim();
-                String time = subMatcher.group("time").trim();
-                Deadline deadline = Deadline.createDeadline(description, time);
-                TaskManager.addTask(deadline);
-                Task.printCreateTask(deadline);
+                try {
+                    String description = subMatcher.group("description").trim();
+                    String timeStr = subMatcher.group("time").trim();
+                    LocalDate time = LocalDate.parse(timeStr);
+                    Deadline deadline = Deadline.createDeadline(description, time);
+                    TaskManager.addTask(deadline);
+                    Task.printCreateTask(deadline);
+                } catch (DateTimeParseException e) {
+                    UI.println(UI.WRONG_TIME_FORMAT_MSG);
+                }
             } else {
                 UI.println(UI.WRONG_DEADLINE_FORMAT_MSG);
             }
