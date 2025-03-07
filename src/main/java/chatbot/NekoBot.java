@@ -1,19 +1,7 @@
 package chatbot;
 import chatbot.IO.Storage;
-import chatbot.misc.NekoException;
 import chatbot.misc.UI;
-import chatbot.task.Deadline;
-import chatbot.task.ToDo;
-import chatbot.task.Event;
-import chatbot.task.Task;
 import chatbot.IO.Parser;
-import chatbot.task.TaskManager;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 

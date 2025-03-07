@@ -75,7 +75,7 @@ public class Storage {
                 out.println(line);
             }
         } catch (IOException e) {
-            UI.println("There is some problem saving the data!");
+            UI.println(UI.CANNOT_SAVE_DATA_MSG);
         }
     }
 

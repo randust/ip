@@ -6,7 +6,6 @@ import java.time.format.DateTimeParseException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 /**
  * Enum representing different action commands that can be executed by the chatbot.
@@ -135,7 +134,11 @@ public enum ActionType {
                 UI.println(UI.PROVIDE_VALID_NO_MSG);
             }
         }
-    }, FIND {
+    },
+    /**
+     * Find a task from TaskManager based on the given description.
+     */
+    FIND {
         @Override
         public void execute(String arguments) {
             int j = 1;

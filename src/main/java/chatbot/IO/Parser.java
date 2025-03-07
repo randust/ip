@@ -13,11 +13,11 @@ public class Parser {
         String[] tokens = userInput.split("\\s+", 2);
         String actionStr = tokens[0];
         if (actionStr.isEmpty()) {
-            UI.println("Meow? I didn’t catch that... Can you say it again, nya?");
+            UI.println(UI.WRONG_COMMAND_MSG);
         } else if (!ACTIONS.contains(actionStr)) {
-            UI.println("Nyaa~ I don’t understand that action, nya! Please try again, meow!");
+            UI.println(UI.WRONG_ACTION_MSG);
         } else if (!actionStr.equals("list") && (tokens.length < 2 || tokens[1].isEmpty())) {
-            UI.println("Meow~! Arguments cannot be empty, nya!");
+            UI.println(UI.ARG_EMPTY_MSG);
         } else {
             String arguments = actionStr.equals("list") ? null : tokens[1];
             ActionType action = ActionType.valueOf(actionStr.toUpperCase());
